@@ -3,6 +3,7 @@ import cors from 'cors';
 import { port } from './utils/enviroment.js';
 import connectDB from './src/config/db.js';
 import taskRouter from './src/router/taskRouter.js';
+import { errorHandler } from './src/middleware/errorHandling.js';
 
 
 const app = express();
@@ -22,3 +23,5 @@ app.listen(port, () =>{
 })
 
 app.use("/api/tasks", taskRouter);
+
+app.use(errorHandler);

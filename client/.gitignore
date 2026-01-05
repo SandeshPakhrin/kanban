@@ -30,5 +30,5 @@ node_modules/
 coverage
 .nyc_output
 .env
-.env.local
+.env.local  
 .env.*.local
