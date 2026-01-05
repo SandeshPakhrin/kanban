@@ -10,18 +10,29 @@ const app = express();
 
 // Enable CORS for client-server communication
 app.use(cors({
-    origin: 'http://localhost:5173', // Vite default port
-    credentials: true
+    origin: [
+        'http://localhost:5173', 
+        'https://kanban-liard-zeta.vercel.app',
+        'https://*.vercel.app'
+    ],
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
 }));
 
 app.use(express.json());
 
 connectDB();
 
-app.listen(port, () =>{
-    console.log(`Server is running on port ${port}`);
-})
-
 app.use("/api/tasks", taskRouter);
 
 app.use(errorHandler);
+
+// For local development
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(port, () =>{
+        console.log(`Server is running on port ${port}`);
+    })
+}
+
+// Export for Vercel
+export default app;
