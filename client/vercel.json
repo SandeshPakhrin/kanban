@@ -1,4 +1,5 @@
 {
-    "buildCommand": "npm run build",
-    "installCommand": "npm install"
+    "buildCommand": "cd kanban && npm run build",
+    "installCommand": "cd kanban && npm install",
+    "outputDirectory": "kanban/dist"
 }
