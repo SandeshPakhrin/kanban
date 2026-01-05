@@ -1,0 +1,28 @@
+
+
+
+
+POST http://localhost:2000/api/tasks
+Content-Type: application/json
+
+{
+    "text": "New Task from REST Client",
+    "status": "todo"
+}
+
+###
+
+GET http://localhost:2000/api/tasks
+
+
+###
+PUT http://localhost:2000/api/tasks/695b5ad66faf8e0759708a34
+Content-Type: application/json
+
+{
+    "text": "Updated Task from REST Client",
+    "status": "inProgress"
+}
+
+###
+DELETE http://localhost:2000/api/tasks/695b5ad66faf8e0759708a34

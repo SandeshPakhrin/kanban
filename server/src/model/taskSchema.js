@@ -1,0 +1,10 @@
+import mongoose from "mongoose";
+
+const taskSchema = new mongoose.Schema({
+    text: { type: String, required: true },
+    status: { type: String, enum: ['todo', 'inProgress', 'done'], default: 'todo'  },
+}, {
+    timestamps: true
+});
+
+export const Task = mongoose.model('Task', taskSchema);
